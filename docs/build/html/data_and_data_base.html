@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Data and Database &#8212; sozioe2s-test 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Class1_small_average__False_S1_moderate_afv_logit_{}" href="data_inputs/Class1_small_average__False_S1_moderate_afv_logit_{}.html" />
+    <link rel="prev" title="Quick Start" href="quickstart.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="data_inputs/Class1_small_average__False_S1_moderate_afv_logit_{}.html" title="Class1_small_average__False_S1_moderate_afv_logit_{}"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="quickstart.html" title="Quick Start"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">sozioe2s-test 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="data-and-database">
+<span id="data-and-data-base"></span><h1>Data and Database<a class="headerlink" href="#data-and-database" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="database">
+<h2>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h2>
+<p>The foundation for the Inve2st Framework is a PostgreSQL Database. Queries have been defined to be able to use the framework as flexible as possible, e.g. for choosing different scenario_IDs for different kinds of data. All queries can be found in the modules.Queries <em>Link Einfügen API</em></p>
+<p>If the database is installed locally by the user, the database needs to be set as TRUE (self.db_on = True) within the module investment_options.</p>
+<p>If the data from the database should be written into the input folder the function needs to be set as True (self.write_data = True)</p>
+</div>
+<div class="section" id="equipment-data">
+<h2>Equipment Data<a class="headerlink" href="#equipment-data" title="Permalink to this headline">¶</a></h2>
+<p>To be able to use the framework without the database, equipment data is provided for different scenarios and aggregation levels.</p>
+<p>The data provided are the results of the database queries for specific settings. The provided data can be found in …sozio_e2s_modelInve2st_Passenger_carinputs.</p>
+<p>The names of the folders are a combination of the settings for the queries:
+investment_option _ aggregation_level _ (tec_none) _ttribute_sceanrio _ probability_calc_type_main_sub</p>
+<p>One exemplary set of input files (as csv) is described here:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data_inputs/Class1_small_average__False_S1_moderate_afv_logit_{}.html">Class1_small_average__False_S1_moderate_afv_logit_{}</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="database-credentials">
+<h2>Database Credentials<a class="headerlink" href="#database-credentials" title="Permalink to this headline">¶</a></h2>
+<p>To be able to connect to database, the login credentials should be set in credentials.json.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+        <span class="nt">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;sozio_e2s&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;db_host&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;my_user&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;password&quot;</span> <span class="p">:</span> <span class="s2">&quot;mypassword&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Data and Database</a><ul>
+<li><a class="reference internal" href="#database">Database</a></li>
+<li><a class="reference internal" href="#equipment-data">Equipment Data</a></li>
+<li><a class="reference internal" href="#database-credentials">Database Credentials</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="quickstart.html"
+                        title="previous chapter">Quick Start</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="data_inputs/Class1_small_average__False_S1_moderate_afv_logit_{}.html"
+                        title="next chapter">Class1_small_average__False_S1_moderate_afv_logit_{}</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/data_and_data_base.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="data_inputs/Class1_small_average__False_S1_moderate_afv_logit_{}.html" title="Class1_small_average__False_S1_moderate_afv_logit_{}"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="quickstart.html" title="Quick Start"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">sozioe2s-test 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, test user.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>API &#8212; sozioe2s-test 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Publications and Links" href="publications_and_links.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="publications_and_links.html" title="Publications and Links"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">sozioe2s-test 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="api">
+<span id="id1"></span><h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-modules.Investment_Options"></span><dl class="class">
+<dt id="modules.Investment_Options.Investment_Options">
+<em class="property">class </em><code class="sig-prename descclassname">modules.Investment_Options.</code><code class="sig-name descname">Investment_Options</code><span class="sig-paren">(</span><em class="sig-param">folder_name</em>, <em class="sig-param">investment_option</em>, <em class="sig-param">starting_year</em>, <em class="sig-param">DB</em>, <em class="sig-param">db_on</em>, <em class="sig-param">write_data</em>, <em class="sig-param">read_data</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Investment_Options.Investment_Options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for Investment Options</p>
+<dl class="method">
+<dt id="modules.Investment_Options.Investment_Options.calculate_first_choice">
+<code class="sig-name descname">calculate_first_choice</code><span class="sig-paren">(</span><em class="sig-param">utility_alternatives</em>, <em class="sig-param">main_sub</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Investment_Options.Investment_Options.calculate_first_choice" title="Permalink to this definition">¶</a></dt>
+<dd><p>euqation to calculate first choice probabilities</p>
+<dl class="simple">
+<dt>utility_alternativesl: pandas.DataFrame()</dt><dd><p>Pandas dataframe containing columns [year, alternative, respondend_ID, utility, ‘probability’] from calculate_utility()</p>
+</dd>
+<dt>main_sub: dict</dt><dd><p>defined sub-groups of respondends accoring to individual data (e.g. main_sub = {‘gender’:’female’,’gr_coll_eff_median’:’high’})</p>
+</dd>
+</dl>
+<p>tb_probabilities_alternatives: pandas.DataFrame() containing the columns [year, alternative, respondend_ID, utility, probability]</p>
+<p>preference_share.png: graph of probabilities for each alternative per year</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Investment_Options.Investment_Options.calculate_logit_probabilities">
+<code class="sig-name descname">calculate_logit_probabilities</code><span class="sig-paren">(</span><em class="sig-param">utility_alternativesl</em>, <em class="sig-param">main_sub</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Investment_Options.Investment_Options.calculate_logit_probabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>euqation to calculate logit probabilities</p>
+<dl class="simple">
+<dt>utility_alternativesl: pandas.DataFrame()</dt><dd><p>Pandas dataframe containing columns [year, alternative, respondend_ID, utility, ‘probability’] from calculate_utility()</p>
+</dd>
+<dt>main_sub: dict</dt><dd><p>defined sub-groups of respondends accoring to individual data (e.g. main_sub = {‘gender’:’female’,’gr_coll_eff_median’:’high’})</p>
+</dd>
+</dl>
+<blockquote>
+<div><p>tb_probabilities_alternatives: pandas.DataFrame() containing the columns [year, alternative, respondend_ID, utility, probability] 
+preference_share.png: graph of probabilities for each alternative per year</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Investment_Options.Investment_Options.calculate_utility">
+<code class="sig-name descname">calculate_utility</code><span class="sig-paren">(</span><em class="sig-param">value_resolution</em>, <em class="sig-param">attribute_sceanrio</em>, <em class="sig-param">aggregation_level</em>, <em class="sig-param">tec_none=True</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Investment_Options.Investment_Options.calculate_utility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the input parameters, it calculates the total annual utility from partial utilities for the given value resolution (average/individual) for the chosen scenario.</p>
+<dl class="simple">
+<dt>value_resolution: str</dt><dd><p>e.g. average_raw, individual_raw</p>
+</dd>
+<dt>attribute_sceanrio: str</dt><dd><p>e.g. S1_contra_afv, S1_moderate_afv, S1_pro_afv</p>
+</dd>
+<dt>aggregation_level: str</dt><dd><p>e.g. average or individual</p>
+</dd>
+<dt>tec_none: Boolean</dt><dd><p>True if tec_none option should be considered, otherwise False</p>
+</dd>
+</dl>
+<p>utility_alternatives: Pandas.DataFrame() containing the columns [year, alternative, respondend_ID, utility]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Investment_Options.Investment_Options.cdf_weibull">
+<code class="sig-name descname">cdf_weibull</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">T</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Investment_Options.Investment_Options.cdf_weibull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weibull Distribution function</p>
+<p>t: random parameter (car age)</p>
+<p>T: location parameter</p>
+<p>b: form parameter</p>
+<p>Cumulated outages</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Investment_Options.Investment_Options.pdf_weibull">
+<code class="sig-name descname">pdf_weibull</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">T</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Investment_Options.Investment_Options.pdf_weibull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weibull Density function</p>
+<p>t: random parameter (car age)</p>
+<p>T: location parameter</p>
+<p>b: form parameter</p>
+<p>Outage probability</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Investment_Options.Investment_Options.pdf_weibull_fit">
+<code class="sig-name descname">pdf_weibull_fit</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">T</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Investment_Options.Investment_Options.pdf_weibull_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weibull Density function adapted</p>
+<p>t: random parameter (car age)</p>
+<p>T: location parameter</p>
+<p>b: form parameter</p>
+<p>Outage probability with a cut at 30 years</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Investment_Options.Investment_Options.query_importances">
+<code class="sig-name descname">query_importances</code><span class="sig-paren">(</span><em class="sig-param">main_sub</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Investment_Options.Investment_Options.query_importances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Investment_Options.Investment_Options.stock_model">
+<code class="sig-name descname">stock_model</code><span class="sig-paren">(</span><em class="sig-param">probabilities</em>, <em class="sig-param">growth_scenario</em>, <em class="sig-param">average_passenger_kilometers</em>, <em class="sig-param">specific_consumption_scenario</em>, <em class="sig-param">specific_emissions_electricity_mix_scenario</em>, <em class="sig-param">specific_emissions_scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Investment_Options.Investment_Options.stock_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to calculate change in stock from 2018 to 2050 and estimates CO2-emissions; valid for passenger cars</p>
+<dl class="simple">
+<dt>tb_prob_alternatives: Pandas DataFrame()</dt><dd><p>tb_probabilities_alternatives: pandas.DataFrame() containing the columns [year, alternative, respondend_ID, utility, probability] (result from robability calculation)</p>
+</dd>
+<dt>growth_scenario: str (for query)</dt><dd><p>growth_scenario = ‘S_constant’ result in query_car_stock_scenario -&gt; assumption on percentage car stock change (e.g. 0.01 - 1% growth per year; -0.01 - 1% decrease per year)</p>
+</dd>
+<dt>average_passenger_kilometers: numeric</dt><dd><p>specified in test.py</p>
+</dd>
+<dt>specific_consumption_scenario: str (for query)</dt><dd><p>(e.g specific_consumption_scenario = ‘S_base’)</p>
+</dd>
+<dt>specific_emissions_electricity_mix_scenario: str (for query)</dt><dd><p>(e.g. specific_emissions_electricity_mix_scenario = ‘S_95_Reduction’)</p>
+</dd>
+<dt>specific_emissions_scenario</dt><dd><p>(e.g. specific_emissions_scenario = ‘S_emissions_calibrated_low’)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>car_stock: Pandas DataFrame() </dt><dd><p>Dataframe containing following columns [reg_year, stock_year,num_cars, age, prob_out, total_outages, share_tec_bev, share_tec_cv, share_tec_fcev, tec_bev, tec_cv, tec_fcev,
+outage_tec_bev, outage_tec_cv,outage_fcev, emission_tec_cv, sp_emissions_tec_cv, consumption_tec_bev, consumption_tec_fcev, emissions_el_mix, emissions_BEV, emissions_FCEV]</p>
+</dd>
+<dt>stock_sum: Pandas DataFrame() </dt><dd><p>Dataframe containing following columns [year, tec_bev, tec_cv, tec_fcev, total_number_of_cars, share_tec_bev, share_tec_cv, share_tec_fcev, stock_next_year, 
+outage_tec_bev, outage_tec_cv,outage_fcev, sum_outages, sum_new_cars_next_year, new_cars_ny_tec_bev,  new_cars_ny_tec_cv,new_cars_ny_tec_fcev]</p>
+</dd>
+<dt>CO2_emissions: Pandas DataFrame() </dt><dd><p>Dataframe containing following columns [year,emissions_CV, emissions_BEV, emissions_FCEV]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-modules.DataBase"></span><dl class="class">
+<dt id="modules.DataBase.DataBase">
+<em class="property">class </em><code class="sig-prename descclassname">modules.DataBase.</code><code class="sig-name descname">DataBase</code><span class="sig-paren">(</span><em class="sig-param">dbname</em>, <em class="sig-param">host</em>, <em class="sig-param">user</em>, <em class="sig-param">password</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.DataBase.DataBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for Postgresql Database</p>
+<dl class="method">
+<dt id="modules.DataBase.DataBase.execute_query">
+<code class="sig-name descname">execute_query</code><span class="sig-paren">(</span><em class="sig-param">query</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.DataBase.DataBase.execute_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for executing Postgresql query.</p>
+<dl class="simple">
+<dt>query: str</dt><dd><p>SQL Query</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>r: str</dt><dd><p>SQL Query Result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-modules.Queries"></span><dl class="class">
+<dt id="modules.Queries.Query">
+<em class="property">class </em><code class="sig-prename descclassname">modules.Queries.</code><code class="sig-name descname">Query</code><a class="headerlink" href="#modules.Queries.Query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This Class contains methods which help in generating SQL queries for various purposes in the Investment_Options Class.</p>
+<dl class="method">
+<dt id="modules.Queries.Query.query_applications">
+<code class="sig-name descname">query_applications</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_application_characteristics_validity_time_pk</em>, <em class="sig-param">c_application_description</em>, <em class="sig-param">c_application_characteristics_scenario_pk</em>, <em class="sig-param">c_regions_name</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_applications" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query applications</p>
+<dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment option description</p>
+</dd>
+<dt>c_application_characteristics_validity_time_pk: str</dt><dd><p>Application characteristics validity time</p>
+</dd>
+<dt>c_application_description: str</dt><dd><p>Application Description</p>
+</dd>
+<dt>c_application_characteristics_scenario_pk: str</dt><dd><p>application characteristics scenario</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions Name</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_applications_characteristics">
+<code class="sig-name descname">query_applications_characteristics</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">start_year</em>, <em class="sig-param">end_year</em>, <em class="sig-param">c_application_description</em>, <em class="sig-param">c_application_characteristics_scenario_pk</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">tb_application_characteristic_types_description</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_applications_characteristics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query Application Characteristics
+Parameters
+———-
+c_investment_options_description: str</p>
+<blockquote>
+<div><p>Investment options description</p>
+</div></blockquote>
+<dl class="simple">
+<dt>start_year: str</dt><dd><p>Start year</p>
+</dd>
+<dt>end_year: str</dt><dd><p>End year</p>
+</dd>
+<dt>c_application_description: str</dt><dd><p>Application description</p>
+</dd>
+<dt>c_application_characteristics_scenario_pk: str</dt><dd><p>Application characteristic scenario</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions Name</p>
+</dd>
+<dt>tb_application_characteristic_types_description: str</dt><dd><p>Application characteristic types description</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_applications_characteristics_opts">
+<code class="sig-name descname">query_applications_characteristics_opts</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">start_year</em>, <em class="sig-param">end_year</em>, <em class="sig-param">c_application_description</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">tb_application_characteristic_types_description</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_applications_characteristics_opts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>start_year: str</dt><dd><p>Start year</p>
+</dd>
+<dt>end_year: str</dt><dd><p>End year</p>
+</dd>
+<dt>c_application_description: str</dt><dd><p>Application description</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+<dt>tb_application_characteristic_types_description: str</dt><dd><p>Application characteristic types description</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_applications_demand">
+<code class="sig-name descname">query_applications_demand</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">start_year</em>, <em class="sig-param">end_year</em>, <em class="sig-param">c_application_description</em>, <em class="sig-param">c_application_characteristics_scenario_pk</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">tb_application_characteristic_types_description</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_applications_demand" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>start_year: str</dt><dd><p>Start year</p>
+</dd>
+<dt>end_year: str</dt><dd><p>End year</p>
+</dd>
+<dt>c_application_description: str</dt><dd><p>Application description</p>
+</dd>
+<dt>c_application_characteristics_scenario_pk: str</dt><dd><p>Application characteristics scenario</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+<dt>tb_application_characteristic_types_description: str</dt><dd><p>Application characteristic types description</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_applications_demand_opts">
+<code class="sig-name descname">query_applications_demand_opts</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">start_year</em>, <em class="sig-param">end_year</em>, <em class="sig-param">c_application_description</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">tb_application_characteristic_types_description</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_applications_demand_opts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>start_year: str</dt><dd><p>Start year</p>
+</dd>
+<dt>end_year: str</dt><dd><p>End year</p>
+</dd>
+<dt>c_application_description: str</dt><dd><p>Application description</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+<dt>tb_application_characteristic_types_description: str</dt><dd><p>Application characteristic types description</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_applications_size">
+<code class="sig-name descname">query_applications_size</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">starting_year</em>, <em class="sig-param">c_application_description</em>, <em class="sig-param">c_application_characteristics_scenario_pk</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">tb_application_characteristic_types_description</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_applications_size" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>starting_year: str</dt><dd><p>Starting year</p>
+</dd>
+<dt>c_application_description: str</dt><dd><p>Application description</p>
+</dd>
+<dt>c_application_characteristics_scenario_pk: str</dt><dd><p>Application characteristic scenario</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+<dt>tb_application_characteristic_types_description: str</dt><dd><p>Application characteristic types</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_attribute_level_per_year">
+<code class="sig-name descname">query_attribute_level_per_year</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em>, <em class="sig-param">attribute_sceanrio</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_attribute_level_per_year" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_attribute_level_putility">
+<code class="sig-name descname">query_attribute_level_putility</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em>, <em class="sig-param">value_resolution</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_attribute_level_putility" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_attributes">
+<code class="sig-name descname">query_attributes</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_car_class_share">
+<code class="sig-name descname">query_car_class_share</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_car_class_share" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_car_stock_scenario">
+<code class="sig-name descname">query_car_stock_scenario</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em>, <em class="sig-param">car_stock_scenario_ID</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_car_stock_scenario" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_car_target_system">
+<code class="sig-name descname">query_car_target_system</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em>, <em class="sig-param">car_target_system_scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_car_target_system" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_car_target_value">
+<code class="sig-name descname">query_car_target_value</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em>, <em class="sig-param">car_target_scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_car_target_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_consumer_prices">
+<code class="sig-name descname">query_consumer_prices</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_consumertype_description</em>, <em class="sig-param">c_consumption_prices_scenario</em>, <em class="sig-param">start_year</em>, <em class="sig-param">end_year</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_consumer_prices" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_consumertype_description: str</dt><dd><p>Consumer type desciption</p>
+</dd>
+<dt>c_consumption_prices_scenario: str</dt><dd><p>Consumer prices scenario</p>
+</dd>
+<dt>start_year: str</dt><dd><p>Start year</p>
+</dd>
+<dt>end_year: str</dt><dd><p>End year</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_consumer_prices_opts">
+<code class="sig-name descname">query_consumer_prices_opts</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_consumertype_description</em>, <em class="sig-param">start_year</em>, <em class="sig-param">end_year</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_consumer_prices_opts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_consumertype_description: str</dt><dd><p>Consumer type description</p>
+</dd>
+<dt>start_year: str</dt><dd><p>Start year</p>
+</dd>
+<dt>end_year: str</dt><dd><p>End year</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_consumer_prices_yearly_avg">
+<code class="sig-name descname">query_consumer_prices_yearly_avg</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_consumertype_description</em>, <em class="sig-param">c_consumption_prices_scenario</em>, <em class="sig-param">start_year</em>, <em class="sig-param">end_year</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_consumer_prices_yearly_avg" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_consumertype_description: str</dt><dd><p>Consumer type description</p>
+</dd>
+<dt>c_consumption_prices_scenario: str</dt><dd><p>Consumption prices scenario</p>
+</dd>
+<dt>start_year: str</dt><dd><p>Start year</p>
+</dd>
+<dt>end_year: str</dt><dd><p>End year</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_discrete_attributes">
+<code class="sig-name descname">query_discrete_attributes</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_discrete_attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_economic_parameters">
+<code class="sig-name descname">query_economic_parameters</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">c_economic_parameter_validity_time</em>, <em class="sig-param">c_economic_parameter_scenario_pk</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_economic_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+<dt>c_economic_parameter_validity_time: str</dt><dd><p>Economic parameter validity time</p>
+</dd>
+<dt>c_economic_parameter_scenario_pk: str</dt><dd><p>Economic parameter scenario</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_economic_parameters_2">
+<code class="sig-name descname">query_economic_parameters_2</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">starting_year</em>, <em class="sig-param">c_economic_parameter_scenario_pk</em>, <em class="sig-param">c_economic_parameter_description</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_economic_parameters_2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+<dt>starting_year: str</dt><dd><p>Starting year</p>
+</dd>
+<dt>c_economic_parameter_scenario_pk: str</dt><dd><p>Economic parameter scenario</p>
+</dd>
+<dt>c_economic_parameter_description: str</dt><dd><p>Economic parameter description</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_economic_parameters_economic_lifetime">
+<code class="sig-name descname">query_economic_parameters_economic_lifetime</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">starting_year</em>, <em class="sig-param">c_economic_parameter_scenario_pk</em>, <em class="sig-param">c_economic_parameter_description</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_economic_parameters_economic_lifetime" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>regions name</p>
+</dd>
+<dt>starting_year: str</dt><dd><p>starting year</p>
+</dd>
+<dt>c_economic_parameter_scenario_pk: str</dt><dd><p>Economic parameter scenario</p>
+</dd>
+<dt>c_economic_parameter_description: str</dt><dd><p>Economic parameter description</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_economic_parameters_economic_lifetime_opts">
+<code class="sig-name descname">query_economic_parameters_economic_lifetime_opts</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">starting_year</em>, <em class="sig-param">c_economic_parameter_description</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_economic_parameters_economic_lifetime_opts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+<dt>starting_year: str</dt><dd><p>Starting year</p>
+</dd>
+<dt>c_economic_parameter_description: str</dt><dd><p>economic parameter description</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_emissions_electricity_mix">
+<code class="sig-name descname">query_emissions_electricity_mix</code><span class="sig-paren">(</span><em class="sig-param">specific_emissions_electricity_mix_scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_emissions_electricity_mix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_financial_parameters">
+<code class="sig-name descname">query_financial_parameters</code><span class="sig-paren">(</span><em class="sig-param">c_investors_description</em>, <em class="sig-param">c_financial_parameter_scenario_pk</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">c_financial_parameter_types_description</em>, <em class="sig-param">starting_year</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_financial_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investors_description: str</dt><dd><p>Investors description</p>
+</dd>
+<dt>c_financial_parameter_scenario_pk: str</dt><dd><p>Financial parameter scenario</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+<dt>c_financial_parameter_types_description: str</dt><dd><p>Financial parameter types description</p>
+</dd>
+<dt>starting_year: str</dt><dd><p>Starting year</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_financial_parameters_opts">
+<code class="sig-name descname">query_financial_parameters_opts</code><span class="sig-paren">(</span><em class="sig-param">c_investors_description</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">c_financial_parameter_types_description</em>, <em class="sig-param">starting_year</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_financial_parameters_opts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investors_description: str</dt><dd><p>Investors description</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+<dt>c_financial_parameter_types_description: str</dt><dd><p>Financial parameter types description</p>
+</dd>
+<dt>starting_year: str</dt><dd><p>Starting year</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_historical_annual_installations">
+<code class="sig-name descname">query_historical_annual_installations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_historical_annual_installations" title="Permalink to this definition">¶</a></dt>
+<dd><p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_historical_annual_installations_main">
+<code class="sig-name descname">query_historical_annual_installations_main</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_application_description</em>, <em class="sig-param">c_regions_name</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_historical_annual_installations_main" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_application_description: str</dt><dd><p>Application description</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_historical_annual_installations_pv">
+<code class="sig-name descname">query_historical_annual_installations_pv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_historical_annual_installations_pv" title="Permalink to this definition">¶</a></dt>
+<dd><p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_historical_annual_installations_sub">
+<code class="sig-name descname">query_historical_annual_installations_sub</code><span class="sig-paren">(</span><em class="sig-param">c_regions_name</em>, <em class="sig-param">c_application_description</em>, <em class="sig-param">tec</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_historical_annual_installations_sub" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+<dt>c_application_description: str</dt><dd><p>Application description</p>
+</dd>
+<dt>tec: str</dt><dd><p>technology</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_importances">
+<code class="sig-name descname">query_importances</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em>, <em class="sig-param">aggregation_level</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_importances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_investment_costs">
+<code class="sig-name descname">query_investment_costs</code><span class="sig-paren">(</span><em class="sig-param">c_economic_parameter_description</em>, <em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_regions_name</em>, <em class="sig-param">c_economic_parameter_validity_time</em>, <em class="sig-param">c_economic_parameter_scenario_pk</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_investment_costs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_economic_parameter_description: str</dt><dd><p>Economic parameter description</p>
+</dd>
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+<dt>c_economic_parameter_validity_time: str</dt><dd><p>Economic parameter validity time</p>
+</dd>
+<dt>c_economic_parameter_scenario_pk: str</dt><dd><p>Economic parameter scenario</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_investment_option_alternatives">
+<code class="sig-name descname">query_investment_option_alternatives</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_investment_option_alternatives" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_investor_stock_share">
+<code class="sig-name descname">query_investor_stock_share</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_investor_stock_share" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_market_phases">
+<code class="sig-name descname">query_market_phases</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_market_phases" title="Permalink to this definition">¶</a></dt>
+<dd><p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_meteological_data">
+<code class="sig-name descname">query_meteological_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_meteological_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_nominal_rate">
+<code class="sig-name descname">query_nominal_rate</code><span class="sig-paren">(</span><em class="sig-param">start_year</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_nominal_rate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>start_year: str</dt><dd><p>Start year</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_political_incentives">
+<code class="sig-name descname">query_political_incentives</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_application_description</em>, <em class="sig-param">c_political_instrument_scenario</em>, <em class="sig-param">tb_political_instrument_types_description</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_political_incentives" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_application_description: str</dt><dd><p>Application description</p>
+</dd>
+<dt>c_political_instrument_scenario: str</dt><dd><p>Political Instrument scenario</p>
+</dd>
+<dt>tb_political_instrument_types_description: str</dt><dd><p>Political instrument types description</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_political_incentives_opt">
+<code class="sig-name descname">query_political_incentives_opt</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_application_description</em>, <em class="sig-param">tb_political_instrument_types_description</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_political_incentives_opt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_application_description: str</dt><dd><p>Application description</p>
+</dd>
+<dt>tb_political_instrument_types_description: str</dt><dd><p>Political instrument types description</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_potential">
+<code class="sig-name descname">query_potential</code><span class="sig-paren">(</span><em class="sig-param">c_technology_pfk</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_potential" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_technology_pfk: str</dt><dd><p>technology primary key</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_specific_consumption">
+<code class="sig-name descname">query_specific_consumption</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em>, <em class="sig-param">specific_consumption_scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_specific_consumption" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_specific_emissions">
+<code class="sig-name descname">query_specific_emissions</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em>, <em class="sig-param">specific_emissions_scenario</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_specific_emissions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_stoc_init_year">
+<code class="sig-name descname">query_stoc_init_year</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em>, <em class="sig-param">year</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_stoc_init_year" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_stock_scenario">
+<code class="sig-name descname">query_stock_scenario</code><span class="sig-paren">(</span><em class="sig-param">c_application_description</em>, <em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_regions_name</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_stock_scenario" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_application_description: str</dt><dd><p>Application description</p>
+</dd>
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_regions_name: str</dt><dd><p>Regions name</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_sub_group">
+<code class="sig-name descname">query_sub_group</code><span class="sig-paren">(</span><em class="sig-param">main</em>, <em class="sig-param">sub</em>, <em class="sig-param">investment_option</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_sub_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_sub_technology_share">
+<code class="sig-name descname">query_sub_technology_share</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_sub_technology_share" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_technical_lifetime">
+<code class="sig-name descname">query_technical_lifetime</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em>, <em class="sig-param">c_technical_characteristics_types_description</em>, <em class="sig-param">c_technology_characteristics_validity_period_pk</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_technical_lifetime" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+<dt>c_technical_characteristics_types_description: str</dt><dd><p>Technical characteristics types description</p>
+</dd>
+<dt>c_technology_characteristics_validity_period_pk: str</dt><dd><p>Technology characteristics validity period</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_technologies_name">
+<code class="sig-name descname">query_technologies_name</code><span class="sig-paren">(</span><em class="sig-param">tec_pk</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_technologies_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_technology_relation">
+<code class="sig-name descname">query_technology_relation</code><span class="sig-paren">(</span><em class="sig-param">c_investment_options_description</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_technology_relation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>c_investment_options_description: str</dt><dd><p>Investment options description</p>
+</dd>
+</dl>
+<p>SQL string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_total_car_stock">
+<code class="sig-name descname">query_total_car_stock</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_total_car_stock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_total_car_stock_w_registration_year">
+<code class="sig-name descname">query_total_car_stock_w_registration_year</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_total_car_stock_w_registration_year" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_utility_energy_transition">
+<code class="sig-name descname">query_utility_energy_transition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_utility_energy_transition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_utility_grid_independence">
+<code class="sig-name descname">query_utility_grid_independence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_utility_grid_independence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.Queries.Query.query_utility_none_option">
+<code class="sig-name descname">query_utility_none_option</code><span class="sig-paren">(</span><em class="sig-param">investment_option</em>, <em class="sig-param">value_resolution</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.Queries.Query.query_utility_none_option" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="publications_and_links.html"
+                        title="previous chapter">Publications and Links</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/api.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="publications_and_links.html" title="Publications and Links"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">sozioe2s-test 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, test user.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

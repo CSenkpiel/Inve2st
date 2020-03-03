@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Use Cases In Detail &#8212; sozioe2s-test 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="The Inve2st Model" href="the_inve2st_model.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="license.html" title="License"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="the_inve2st_model.html" title="The Inve2st Model"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">sozioe2s-test 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="use-cases-in-detail">
+<span id="id1"></span><h1>Use Cases In Detail<a class="headerlink" href="#use-cases-in-detail" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>This chapter describes the modelling of the adoption of</dt><dd><ul class="simple">
+<li><p>alternative drive systems of passenger cars</p></li>
+<li><p>PV-battery systems of private house owners</p></li>
+<li><p>Power-to-Gas systems</p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="passenger-cars">
+<h2>Passenger cars<a class="headerlink" href="#passenger-cars" title="Permalink to this headline">¶</a></h2>
+<p><strong>Introduction</strong></p>
+<p>The aim of the model is to simulate the annual adoption of alternative drive systems of passenger cars by private persons. With the model results it is possible to compare these results with the targets that originate from energy system scenarios to fulfill the necessary CO2-emission reduction targets.</p>
+<p><strong>Empirical data</strong></p>
+<p>The modelling approach follows the method of a discrete choice model using data from a representative discrete choice experiment incorporated in an online questionnaire study. The respondents had to choose among three alternative vehicle types (battery-electric (BEV), fuel cell (FCEV) and conventional (diesel/gasoline CV)), which were characterized by following attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>CAPEX</p></li>
+<li><p>CO2-tax</p></li>
+<li><p>fuel costs</p></li>
+<li><p>infrastructure</p></li>
+<li><p>range</p></li>
+<li><p>well2well emissions</p></li>
+</ul>
+</div></blockquote>
+<p>Each attribute had two to four attribute levels, which were chosen to represent the bandwidth of the development from today until 2050. The attribute levels rotated within the experiment, so that every participant responded to 10 choice tasks. As the attribute levels differ between different car classes a distinction between three classes was undertaken.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Class1_small (minis, small cars and compact class)</p></li>
+<li><p>Class2_medium (mid-sized cars)</p></li>
+<li><p>Class3_upper  (upper-sized cars and luxury cars)</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Model process</strong></p>
+<p>For simulating the adoption</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The model is initialized</p></li>
+<li><p>The utilities are calculated</p></li>
+<li><p>The probabilities are calculated</p></li>
+<li><p>The change in the car stock is calculated</p></li>
+</ol>
+</div></blockquote>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/flow_chart_PC.png"><img alt="_images/flow_chart_PC.png" src="_images/flow_chart_PC.png" style="width: 728.6999999999999px; height: 615.3px;" /></a>
+</div>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>Initialization</strong> def __init__() (<a class="reference internal" href="api.html#api"><span class="std std-ref">API</span></a>)</dt><dd><ul class="simple">
+<li><p>the user chooses between different car classes (Class1_small, Class2_medium, Class3_upper)</p></li>
+<li><p>Data base is initialized (this is not necessary if csv data is read in (self.read_data = True))</p></li>
+<li><p>The starting year is defined according to the car stock data 2018</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Calculate Utility</strong> calculate_utility() (<a class="reference internal" href="api.html#api"><span class="std std-ref">API</span></a> )</p></li>
+</ol>
+<p>The target of this function is to calculate the total utility of possible alternatives for each respondent. All possible alternatives were created from a set of attribute levels. Via the discrete choice experiment, partial utilities of the respective attribute levels were calculated. The partial utilities were calculated with SAWTOOTH software on the basis of Hierarchical Bayes Estimation (<a class="reference external" href="https://www.sawtoothsoftware.com/support/technical-papers/hierarchical-bayes-estimation">https://www.sawtoothsoftware.com/support/technical-papers/hierarchical-bayes-estimation</a>). The total utilties were calculated as the sum of partial utilities of each attribute level. Partial utilities were provided within the original dataset <a class="reference internal" href="data_and_data_base.html#data-and-data-base"><span class="std std-ref">Data and Database</span></a> of the discrete choice experiment.</p>
+<p>For vehicles, the attributes are specified as a (future attribute development) scenario, in which the car attributes (capex, co2-tax, fuel costs, infrastructure, range and well2well emissions) are specified by means of the predicted? attribute levels for each year from the start_year (2018) until 2050 <a class="reference internal" href="data_inputs/Class1_small_average__False_S1_moderate_afv_logit_{}.html#class1-small-average-false-s1-moderate-afv-logit"><span class="std std-ref">Class1_small_average__False_S1_moderate_afv_logit_</span></a> . By adapting the attribute levels the user can create a new scenario for simulating different technology deployments. As a result, the influence of changing parameters (for example good infrastructure for battery electric vehicles) on the investment decision of alternative vehicle types can be modelled. For a proper functioning of the model ?? it needs to be ensured, that the attribute levels are within the minimum and maximum value of the DCE values. Interpolations of continuous values are possible, extrapolations are not valid.
+For the discrete attributes (CO2-tax, infrastructure and wel2whell emissions) the partial utilities are directly used from the data set whereas for the continuous attributes (CAPEX, fuel cost, range)
+the values of the partial utilities are interpolated linearly between two data points.</p>
+<p>One option that can be chosen in the car_simulation.py is the inclusion of the NONE option. This operation is only recommended for the calculation of the preference shares but not for the stock model, in which an assumption of the development of the cumulated car stock (as a percentage) can be set as an input parameter.
+The input data needed as csv or data base query are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>alternatives <a class="reference internal" href="data_inputs/Class1_small_average__False_S1_moderate_afv_logit_{}.html#class1-small-average-false-s1-moderate-afv-logit"><span class="std std-ref">Class1_small_average__False_S1_moderate_afv_logit_</span></a></p></li>
+<li><p>query_attribute_level_putility (partial utilities from original dataset)</p></li>
+<li><p>query_utility_none_option (partial utility of none option if enabled)</p></li>
+<li><p>query_attribute_level_per_year (scenario definition from today until 2050 (e.g.attribute_scenanrio =’S1_moderate_afv’))</p></li>
+</ol>
+</div></blockquote>
+<p>As a result of the function a pandas.dataframe (utilities_alternatives) is generated. The probability is not calculated in this step (-1 serves as a placeholder). The usage of the average utilities is not recommended, as the results differ distinctly from the usage of the individual utilities. The value resolution and aggregation <em>average</em> is recommended to use for the understanding and further development of the model, as the simulation is much faster than for individual values.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/utilities_alternatives.png"><img alt="_images/utilities_alternatives.png" src="_images/utilities_alternatives.png" style="width: 419.29999999999995px; height: 140.0px;" /></a>
+</div>
+<p>3. <strong>Calculate Choice Probability</strong>
+On the basis of the total utilities per alternative per respondent, the preference share for one alternative compared to the other alternatives is calculated. For this purpose, different logics can be applied. One of them needs to be chosen in the car_simulation.py <em>(probability_calc_type = ‘logit’).</em></p>
+<blockquote>
+<div><p><strong>First choice</strong> calculate_first_choice() (<a class="reference internal" href="api.html#api"><span class="std std-ref">API</span></a> )</p>
+</div></blockquote>
+<p>The assumption of this rule is that the respondent chooses the alternative with the highest utility.</p>
+<blockquote>
+<div><p><strong>Logit choice probability</strong> calculate_logit_probabilities() (<a class="reference internal" href="api.html#api"><span class="std std-ref">API</span></a> )</p>
+</div></blockquote>
+<p>Within this rule a share of preference towards each alternative is calculated per respondent. Following the equation:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/equation_logit_prob.png"><img alt="_images/equation_logit_prob.png" src="_images/equation_logit_prob.png" style="width: 175.0px; height: 60.5px;" /></a>
+</div>
+<p>Where i is individual, j is alternative, U is utility and P is the probability</p>
+<p>The input data needed as csv or data base query are for both rules:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>utility_alternatives (result from calculate_utility())</p></li>
+<li><p>main_sub (main_sub = {} (no building of subgroups))</p></li>
+</ol>
+</div></blockquote>
+<p><em>Explanation main_sub: represents a subgroup of the respondents; for example only selecting the respondents that stated to be female for analyzing the influence of person-related factors. Note: The specification only works with database connection. If no connection to the database exists a subgroup of respondents can be manually built in the csv file df_sub.</em></p>
+<p>As a result of one of the decision rules a pandas data frame <em>tb_prob_alternatives</em> is passed and saved (results/tb_prob_alternatives.csv). In addition, a graph with the preference shares is saved (/results/preference_share.png).</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/preference_share.png"><img alt="_images/preference_share.png" src="_images/preference_share.png" style="width: 740.0px; height: 420.0px;" /></a>
+</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>Stock model</strong> stock_model()(<a class="reference internal" href="api.html#api"><span class="std std-ref">API</span></a> )</p></li>
+</ol>
+<p>Aim of the stock model is the calculation of the <strong>total car stock by vehicle type</strong> (BEV, FCEV, CV) from 2018 until 2050, on the basis of the preference shares of the individuals.
+For this purpose, an assumption on the development of the total car stock as a yearly percentage (e.g. growth_scenario = ‘S_constant’) is made to calculate the total number of cars in the next year (stock_sum table), on an annual basis. Additionally, the number of cars that will be deregistered in the actual year is calculated dependent on the age of a car (car_stock table) by vehicle type. To calculate the outage probabilities a Weibull Fit is used on the basis of the historic car stock development (tb_stock) from 2001 to 2018. Having the number of new total car stock for the next year and the outages in the current year, the total number of new cars is calculated. The distribution of the new cars per vehicle type is calculated using the preference shares, that are calculated in either calculate_first_choice() or calculate_logit_probabilities(). The process is repeated sequentially until 2050 on an annual basis.
+As a result, the csv File stock_sum  is saved in the results folder. In addition, the plot stock.png is created and saved.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/stock.png"><img alt="_images/stock.png" src="_images/stock.png" style="width: 740.0px; height: 420.0px;" /></a>
+</div>
+<p>A comparison of the calculated diffusion of alternative driving concepts with shares from cost-minimizing, model-based quantified sector-coupled energy scenarios (e.g. REMod), which include a CO2-emission reduction target is realized on the basis of technology shares. It is plotted and saved in plot share.png and a statement is put in the command prompt :</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/share.png"><img alt="_images/share.png" src="_images/share.png" style="width: 740.0px; height: 420.0px;" /></a>
+</div>
+<p><em>“In 2030, the market share of battery electric vehicles (BV) is 11.46 %. The target of 33.51 % is not achieved
+In 2030, the market share of fuel cell electric vehicles (FCEV) is 0.81 %. The target of 0.00 % is achieved
+In 2050, the market share of battery electric vehicles (BV) is 57.78 %. The target of 64.52 % is not achieved
+In 2050, the market share of fuel cell electric vehicles (FCEV) is 6.76 %. The target of 33.29 % is not achieved”</em></p>
+<p>In addition, the <strong>CO2-emissions</strong> based on assummed passenger kilometers (which is specified in car_simulation.py - e.g average_passenger_kilometers = 20900) are estimated per passenger car and specific emission values.
+For the calculation of emissions of conventional vehicles, emissions (according to Agora and own assumptions) are calibrated based on the total Pkm in 2018 (source:” Destatis Verkehr in Zahlen”)  and 70% (according to Renewbility III) of the total emissions from road transport (UBA) for passenger cars, compared to freight transport. Historic and future specific emissions per construction year and vehicle class are taken as data basis.  For calculating emissions of BEV and FCEV assumptions on the specific consumption (kWh/100km) as well as CO2-emissions of the electricity mix [gCO2/kWh]are used to calculate the CO2-emissions.</p>
+<p><em>It has to be mentioned that the specific emissions from literature are much higher than the calibrated values, which shows that uncertainties arise from 1) specific emission values and 2) average driving performance. To adequately calculate the emissions a more detailed model (like TREMOD), which addresses relations between car classes, and driving performance, in terms of road usage, shares of innercity drives, highway drives, overland drives,  and further factors would be needed.</em>
+A plot of theCO2-emissions (CO2_emissions.png) which shows the total estimated CO2-emissions until 2050 is saved. A prompt <em>”The proportional CO2-emission reduction target of 40-42% in 2030 compared to 1990 in the transport sector is not achieved, as a remaining share of 70% is estimated for 2030 and 40% for 2050” is printed in the console.”</em></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/Co2_emissions.png"><img alt="_images/Co2_emissions.png" src="_images/Co2_emissions.png" style="width: 740.0px; height: 420.0px;" /></a>
+</div>
+</div>
+<div class="section" id="pv-homestorage-systems">
+<h2>2.    PV-homestorage systems<a class="headerlink" href="#pv-homestorage-systems" title="Permalink to this headline">¶</a></h2>
+<p>Work in progress</p>
+</div>
+<div class="section" id="power-to-gas">
+<h2>3.    Power-to-Gas<a class="headerlink" href="#power-to-gas" title="Permalink to this headline">¶</a></h2>
+<p>Work in progress</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Use Cases In Detail</a><ul>
+<li><a class="reference internal" href="#passenger-cars">Passenger cars</a></li>
+<li><a class="reference internal" href="#pv-homestorage-systems">2.    PV-homestorage systems</a></li>
+<li><a class="reference internal" href="#power-to-gas">3.    Power-to-Gas</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="the_inve2st_model.html"
+                        title="previous chapter">The Inve2st Model</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="license.html"
+                        title="next chapter">License</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/use_cases_in_detail.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="license.html" title="License"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="the_inve2st_model.html" title="The Inve2st Model"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">sozioe2s-test 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, test user.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>
