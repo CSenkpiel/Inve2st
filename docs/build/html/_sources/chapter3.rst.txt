@@ -1,0 +1,6 @@
+.. _chapter3:
+
+Title of Chapter 3
+==================
+
+This is empty chapter

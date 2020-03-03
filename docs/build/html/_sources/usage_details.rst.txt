@@ -1,0 +1,27 @@
+.. _usage_details:
+
+Usage Details
+=============
+
+- The fundamental data structure (hier Beispielscript/und jupiter notebook) -> Eingabe/Definition der Investitionsoption/ der Methode/ der Ergebnisse 
+
+.. figure:: images/usage_details.png
+   :align: center
+   :scale: 100%
+
+- Wesentlicher Programmablauf
+	- Hier Flussdiagramm einfügen 
+	- Auswahl Investitionsoption (einzelne Schritte beschreiben)
+	- Zubaumethode
+		- Utility maximization 
+			- Calculate_utility
+			- Calculate Probability
+				- Wahl: Share of preference
+				- Wahl: First choice
+				- Wahl: Purchace probability
+		- Diffusion model (S-Kurve) 
+	- Berechnung der Zubauentscheidung 
+		- Ausfalldichtefunktion 
+		- Potenzial 
+	- Stock_Model 
+	- Comparison to target system 

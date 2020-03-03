@@ -1,0 +1,27 @@
+Investment Options
+==================
+
+This is the first paragraph of chapter 1.
+
+.. automodule:: modules.Investment_Options
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+The chapter contents include;
+
+* foo bar 1
+* foo bar 2
+* foo bar 3
+
+
+This is Summer Time
+
+
+See :ref:`Title of Chapter 2<chapter2>` for fast access to chapter 2.
+
+
+LICENSE:
+--------
+
+TODO: Add license information. 
