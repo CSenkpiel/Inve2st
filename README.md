@@ -1,4 +1,4 @@
-<img align="right" width="300" height="120" src="https://github.com/CSenkpiel/Inve2stCars/blob/master/docs/source/images/Invest_Logo.jpg">
+<img align="right" width="200" height="80" src="https://github.com/CSenkpiel/Inve2stCars/blob/master/docs/source/images/Invest_Logo.jpg">
 
 
 # Inve2stCars
