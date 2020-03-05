@@ -10,7 +10,7 @@ This chapter describes the modelling of the adoption of
 
 
 
-Passenger cars
+1.    Passenger cars
 ------------------------------
 
 **Introduction** 
