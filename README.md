@@ -23,7 +23,7 @@ Federal Ministry for Economic Affairs and Energy (BMWi); support code
 LICENSE
 ------
 Copyright (C) 2020 Fraunhofer ISE
-<img align="center" width="200" height="50" src="https://github.com/CSenkpiel/Inve2stCars/blob/master/docs/source/images/Fraunhofer-ISE-logo.png">
+<img align="right" width="200" height="50" src="https://github.com/CSenkpiel/Inve2stCars/blob/master/docs/source/images/Fraunhofer-ISE-logo.png">
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
