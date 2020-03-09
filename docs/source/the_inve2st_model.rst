@@ -7,7 +7,7 @@ The Inve2st Model
 
 .. figure:: images/Invest_Logo.jpg
    :align: center
-   :scale: 5%
+   :scale: 20%
 
 
 
