@@ -7,7 +7,7 @@ The Inve2st Model
 
 .. figure:: images/Invest_Logo.jpg
    :align: center
-   :scale: 20%
+   :scale: 10%
 
 
 
@@ -32,7 +32,7 @@ The investment decisions differ between private and corporate decisions and also
 
 .. figure:: images/project_img.png
    :align: center
-   :scale: 90%
+   :scale: 100%
    
 2.    The exemplary cases
 -------------------------
