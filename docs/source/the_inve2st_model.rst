@@ -32,7 +32,7 @@ The investment decisions differ between private and corporate decisions and also
 
 .. figure:: images/project_img.png
    :align: center
-   :scale: 70%
+   :scale: 90%
    
 2.    The exemplary cases
 -------------------------
