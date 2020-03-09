@@ -54,7 +54,7 @@ For simulating the adoption
 
 .. figure:: images/flow_chart_PC.png
    :align: center
-   :scale: 70%
+   :scale: 30%
 
 
 1. **Initialization** def __init__() (:ref:`API<api>`)
