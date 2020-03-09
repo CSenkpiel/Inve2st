@@ -9,7 +9,7 @@ Simulates the diffusion of alternative vehicles (battery electric and hydrogen) 
 ACKNOWLEDGMENTS
 ------------------
 
-<img align="right" width="200" height="150" src="https://github.com/CSenkpiel/Inve2stCars/blob/master/docs/source/images/funding.PNG">
+<img align="right" width="180" height="130" src="https://github.com/CSenkpiel/Inve2stCars/blob/master/docs/source/images/funding.PNG">
 
 This work was developed in the context of the research project Sozio-E2S 
 „open source energy system modelling - Influence of socio-cultural factors 
