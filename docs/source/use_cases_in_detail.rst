@@ -85,7 +85,7 @@ The input data needed as csv or data base query are:
 
 As a result of the function a pandas.dataframe (utilities_alternatives) is generated. The probability is not calculated in this step (-1 serves as a placeholder). The usage of the average utilities is not recommended, as the results differ distinctly from the usage of the individual utilities. The value resolution and aggregation *average* is recommended to use for the understanding and further development of the model, as the simulation is much faster than for individual values. 
 
-.. figure:: images/utilities_alternatives.png
+.. figure:: images/utilities_alternatives.PNG
    :align: center
    :scale: 70%
 
@@ -103,7 +103,7 @@ The assumption of this rule is that the respondent chooses the alternative with 
 
 Within this rule a share of preference towards each alternative is calculated per respondent. Following the equation: 
 
-.. figure:: images/equation_logit_prob.png
+.. figure:: images/equation_logit_prob.PNG
    :align: center
    :scale: 50%
 Where i is individual, j is alternative, U is utility and P is the probability
