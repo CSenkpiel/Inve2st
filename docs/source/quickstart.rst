@@ -36,7 +36,7 @@ If no own PostgreSQL Database – according to the Inve2st schema is set up, the
 
 The csv files are provided for different cases:
 
-.. figure:: images/Input_folder.png
+.. figure:: images/Input_folder.PNG
    :align: center
    :scale: 70% 
 
@@ -46,6 +46,6 @@ Ensure that the folder name is build according to the "folder_name" specificatio
 
 All user settings can be made in the car_simulation.py 
 
-.. figure:: images/test_py.png
+.. figure:: images/test_py.PNG
    :align: center
    :scale: 70%
