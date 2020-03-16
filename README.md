@@ -6,7 +6,7 @@ Simulates the diffusion of alternative vehicles (battery electric and hydrogen) 
 
 
 
-ACKNOWLEDGMENTS
+ACKNOWLEDGEMENTS
 ------------------
 
 <img align="right" width="180" height="130" src="https://github.com/CSenkpiel/Inve2stCars/blob/master/docs/source/images/funding.PNG">
