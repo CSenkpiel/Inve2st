@@ -20,3 +20,9 @@ API
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
+  
+.. automodule:: calc_UCM_economics
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:
