@@ -145,10 +145,10 @@ A comparison of the calculated diffusion of alternative driving concepts with sh
    :scale: 40% 
 
 
-*"In 2030, the market share of battery electric vehicles (BV) is 11.46 %. The target of 33.51 % is not achieved
-In 2030, the market share of fuel cell electric vehicles (FCEV) is 0.81 %. The target of 0.00 % is achieved
-In 2050, the market share of battery electric vehicles (BV) is 57.78 %. The target of 64.52 % is not achieved
-In 2050, the market share of fuel cell electric vehicles (FCEV) is 6.76 %. The target of 33.29 % is not achieved"*
+*"In 2030, the market share of battery electric vehicles (BV) is 11.46 %. The target of 33.51 % is not achieved.
+In 2030, the market share of fuel cell electric vehicles (FCEV) is 0.81 %. The target of 0.00 % is achieved.
+In 2050, the market share of battery electric vehicles (BV) is 57.78 %. The target of 64.52 % is not achieved.
+In 2050, the market share of fuel cell electric vehicles (FCEV) is 6.76 %. The target of 33.29 % is not achieved."*
 
 
 In addition, the **CO2-emissions** based on assummed passenger kilometers (which is specified in car_simulation.py - e.g average_passenger_kilometers = 20900) are estimated per passenger car and specific emission values. 
