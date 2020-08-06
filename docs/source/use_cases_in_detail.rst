@@ -169,8 +169,216 @@ A plot of theCO2-emissions (CO2_emissions.png) which shows the total estimated C
 2.    PV-homestorage systems
 ------------------------------
 
+**Introduction** 
 
-Work in progress
+The aim of the model is to simulate the purchasing preferences of a PV home storage system (HSS). The alternatives are the purchase of the system or no purchase. 
+The following cases are subdivided, for each of which different attribute levels were determined in the Disctrete Choice Experiment.  
+
+**Empirical data** 
+
+	- House owner without PV or PV battery system
+	- House owner with PV system 
+	
+The modelling approach follows the method of a discrete choice model using data from a representative discrete choice experiment, in which the respondents (house-owners) 
+had to choose among three different types of HSS, which are characterized by following attributes: 
+
+	- time of realization 
+	- CAPEX
+	- IRR/Paybacktime
+	- Degree of autarky
+	- Environmental impact
+
+Each attribute has three to four attribute levels, which are chosen to represent the bandwidth of the development from today until 2050. 
+The attribute levels are rotating within the experiment, meaning that the experiment was repeated multiple times. 
+The empirical data, containing the individual partial utilities, can be found under the following link:
+ 
+https://fordatis.fraunhofer.de/handle/fordatis/153
+
+
+**Calculation Steps** 
+
+To be able to calculate the preferences to buy a HSS system the following calculation steps are undertaken:
+
+.. figure:: images/flow_chart_HSS.PNG
+   :align: center
+   :scale: 40% 
+   
+   
+	1.	Calculation of degree of autarky 
+	2.	Calculation of economic feasibility (IRR, payback, NPV)
+	3.	Calculation of individual utility 
+	4.	Calculation of purchase preference
+
+The first two steps are performed in the script *calc_UCM_economics*, steps 3 and 4 in *Preferences_HSS*. 
+
+**1.	Degree of autarky**
+
+For the calculation without database connection, databaseconnection=False must be set. In this case, Scenario_name = 'Default_Data' should be set. 
+The degree of self-sufficiency is one variable for determining the utility of the HSS. Therefore, in a first step, it is determined as a function of various input parameters. 
+The degree of autarky is defined as: 
+
+.. figure:: images/eq_autarky.PNG
+   :align: center
+   :scale: 65% 
+
+The share of own consumption is defined as: 
+
+.. figure:: images/eq_own_consumption.PNG
+   :align: center
+   :scale: 65% 
+  
+The user input for determining the degree of autarky and own consumption is the ratio of PV system size to demand, the ratio of PV system to battery system 
+(both possible to list for iterative simulation) as well as the ratio of battery capacity to power and the roundtrip efficiency of the battery. 
+The values can be specified as user input in the script.    
+
+
+.. figure:: images/input_autarky.PNG
+   :align: center
+   :scale: 65% 
+
+Within the function calculate_PV-battery_use() (:ref:`API<api>` ), the use of the battery is calculated in order to calculate the degree of autarky as well as the own-consumption share for a specific application.
+The hourly load and the PV generation curve are used as input. The load can be specified for different applications and was determined with the load generator SynPro (https://www.elink.tools/elink-tools/synpro/).
+The generation time series were determined with renewables.ninja (https://www.renewables.ninja/) and scaled according to the assumed ratio of demand to load. The values are written to the data frame (df_PV_use).  
+ 
+First the operation without storage is calculated.  The residual load (residual_load_wo_storage) results from the difference between load and generation (load_kW) - (gen_scaled).
+From this the grid feed can be calculated without storage (Feed_in_wo_stor).  The maximum grid feed-in is limited to 70% of the nominal power according to EEG2014, $9. The curtailment (curtailment_wo_stor) is calculated as the amount of energy that is greater than 70% of the PV output.    
+
+.. figure:: images/UCM_wo_stor.PNG
+   :align: center
+   :scale: 65% 
+
+The second step is to determine the battery usage. At the first hour the battery is assumed to be empty. 
+The battery is charged if the grid feed is positive (PV surplus) and the state of charge of the previous hour is less than the battery capacity. 
+Limits are the remaining storage level and the charging capacity. 
+
+.. figure:: images/UCM_w_stor.PNG
+   :align: center
+   :scale: 65% 
+
+
+The discharge of the battery always occurs when the residual load is positive (power shortage) and the battery state of charge (SOC) is greater than zero. 
+Thus, the grid feed-in with storage as well as the curtailment can be calculated according to the equations for determining the degree of own consumption and self-sufficiency. 
+
+As a result, the hourly storage usage (df_PV_use), the load and generation sums as well as the autarky and own consumption values with and without storage are simulated and saved (result_df). 
+In addition an interactive plot is generated when one system configuration (iterables_on = False) is calculated and opened in the browser. 
+
+.. figure:: images/UCM_battery_plot.png
+   :align: center
+   :scale: 50% 
+
+**2.	Calculation of economic feasibility (IRR, payback, NPV)**
+
+To calculate the economic efficiency of the HSS the cash flow over the technical life of the system is calculated. 
+The cash flow is determined using the calculate_cashflow() (:ref:`API<api>` ) function. When determining the annual PV production, the degradation of the modules is taken into account 
+in the form of an annual factor. 
+
+**Costs:**
+
+Capital costs consist of investment costs (for PV and battery) and installation costs.  They are incurred in year 0 and in the year the battery is replaced 
+(defined by technical lifetime of the battery). Further expenses are the annual running costs (OPEX). 
+
+**Revenues:**
+
+The revenues is made up of the PV system's own consumption, the battery's own consumption plus VAT (USTG, §19) and the grid feed-in. 
+The annual net cash flow (income - expenditure) is discounted and accumulated using the assumed interest rate. On the basis of the cash flow, 
+various parameters can be determined to calculate the economic efficiency of the system. 
+All relevant data is written to the dataframe df_cashflow. 
+Two plots of the cashflow are generated when only one system configuration and "iterables_on = False" is set and opened in the browser: 
+
+.. figure:: images/cash_flow.png
+   :align: center
+   :scale: 50% 
+
+
+.. figure:: images/cash_flow_cum.png
+   :align: center
+   :scale: 50% 
+   
+**Economic Measures:** 
+
+| The calculate_payback function() determines the payback time. 
+| The function calculate_npv() determines the net present value. 
+| The function calculate_IRR() calculates the internal rate of return.
+
+A plot of the economic measures and the autarky as well as own consumption shares is generated: 
+
+.. figure:: images/techno_economic_performance_single.PNG
+   :align: center
+   :scale: 50% 
+
+
+**Iterations:**
+
+Since there are many possible variations regarding the degree of autarky as well as the economic feasibility of the HSS, the script *calc_UCM_economics* was designed 
+in a way that a number of parameters can be specified as iteration parameters.
+
+
+Iterables are:
+
+	-	start_years (year of calculation e.g. 2020, 2030, etc.)
+	-	demand_scenarios (Defined in database or input file)
+	-	regions (NUTS3-code)
+	-	PV_orientations (East, South-West)
+	-	ratio_PV_demands (e.g. 1)
+	-	ratio_PV_Batterys (e.g. 1) 
+	-	WACCs (e.g. 0.018)
+	-	scenario_CAPEX_PVs (Defined in database or input file)
+	-	scenario_CAPEX_bats (Defined in database or input file)
+	-	scenario_FITs (Defined in database or input file)
+	-	scenario_EEXs (Defined in database or input file)
+	-	scenario_consumption_prices (Defined in database or input file)
+	
+These can each be specified as a list. Some of the iterables can be entered directly in the script. Others are specified by scenarios stored in the database or in the 
+Input folder. The user can also add his own new scenarios. The results of the iteration are stored in a csv-file (results_df) with the following variables and stored 
+in the model output folder. 
+
+result_df = pd.DataFrame(columns = ['degree_autarky_wo_storage', 'degree_autarky_w_storage', 'own_consumption_wo_stor', 'own_consumption_w_stor', 'pay_back', 'NPV', 'IRR'], index = pd.MultiIndex.from_product(iterables))
+
+For the graphical display of the results (iterables_on = True) should be set. 
+
+.. figure:: images/econ_perf.PNG
+   :align: center
+   :scale: 50% 
+  
+**3&4 Utilities and preference shares** 
+
+To calculate purchasing preferences, the attribute levels (time of realization, CAPEX, IRR/Paybacktime, Degree of autarky and Environmental impact) 
+are defined in the form of scenarios.The scenarios are based on the possible characteristics of a use case for a particular year. 
+The script *calc_UCM_economics* was developed for the parameters Degree of Autarky and IRR/Paybacktime in combination with the CAPEX, the results of which can be used for the calculation of preferences. 
+Similar to the case of passenger cars, the numerical values for which interpolation (but no extrapolation) between the values is possible 
+(CAPEX,IRR/Paybacktime,Degree of autarky) and those for which interpolation is not possible (time of realization, environmenatl impact) differ. 
+
+The calculation of the utilities is done with the function calculate_utilities(). The calculation of the preference probability can be performed by the 
+functions calculate_logit_probabilities() or calculate_first_choice(). The functions were described in detail for the Use Case passenger cars.
+
+**Input Data**
+ 
+For the use case PV-homestorage system there is also the possibility of database connection as well as calculation without database. 
+The setting can be made in the script Preferences_HSS (databaseconnection = True or False).
+
+**databaseconnection = False**
+For the calculation without database, the data for the cases (investment_options) homestorage and PV-homestorage are provided, for average and individual resolution. 
+It is explicitly stated that the individual data sets should be used for the calculation. The use of the average data sets leads to a significantly shorter calculation 
+time and can therefore be used for test runs, but they show high inaccuracies. 
+There is also a scenario folder for the two investment options, in which the attributes can be specified by year. Any new scenarios can be added at this point. 
+Note that the attribute level for the continuous attributes must remain within the queried Discrete Choice values and the Discrete takes one of the predefined level values.  
+The name of the csv file must be structured as follows: Scenario_name_attribute_level_per_year.csv 
+
+.. figure:: images/folder_structure_preferences.png
+   :align: center
+   :scale: 80% 
+
+**databaseconnection = True**
+
+If the database connection is used, for each scenario a new folder is created in the Input folder, which contains all the data that is used. 
+
+**Results:** 
+
+As a result, a folder of the scenario is created under Results, which contains a csv file for the partial utilities and preferences. The plot of the preferences is saved. 
+
+.. figure:: images/preferences_HSS.png
+   :align: center
+   :scale: 25% 
 
 
 3.    Power-to-Gas
