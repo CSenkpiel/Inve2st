@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Inve2st's documentation!
+Welcome to sozioe2s-test's documentation!
 =========================================
 
 .. toctree::
@@ -27,4 +27,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
