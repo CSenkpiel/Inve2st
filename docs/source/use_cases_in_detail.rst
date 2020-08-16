@@ -384,5 +384,98 @@ As a result, a folder of the scenario is created under Results, which contains a
 3.    Power-to-Gas
 ------------------------------
 
+**Introduction**
 
-Work in progress
+In this use case, the diffusion of power to gas in Germany is modelled. 
+For this aim, economic and non-economic determinants for investments are identified and quantified in the form on an indicator which shapes the PtG deployment pathway.
+This is performed for the sectors 'mobility', 'industry', 'injection' and 're-electrification' seperately. 
+The considered facility sizes are 3.1, 10, 310 and 590 MWel, for the technologies AEL and PEM. 
+For the furture development of energy prices, there are two scenarios, optimistic and pessimistic. At the end this gives a range for the development of PtG. Further different electricity tariffs are considered.
+
+
+**Model process**
+
+The diffusion of power to gas is modelled by a logistic function. In the simulation the following steps are undertaken:
+
+	1. Calculation of annual diffusion rates from historical data
+	2. Calculation of determinants 
+	3. Calculation of the modified diffusion
+	
+.. figure:: images/flowchart_ptg.png
+   :align: center
+   :scale: 100% 
+
+1. **Calculation of annual diffusion rate from historical data**
+
+In the first step, the logistic function is fitted to the historical data. Therefore the model is explained briefly.
+Let :math:`i_{inflect}` be the year of the inflection point, :math:`c_{max,s}` the maximaum capacity in sector :math:`s` and :math:`r_s` the growth rate of sector :math:`s`. 
+Then the installed capacity :math:`c_{i,s}` of sector :math:`s` in year :math:`i` is given as the following sum:
+
+.. math::
+	c_{i,s} = \frac{c_{max,s}}{1 + exp(-(i - i_{inflect}) r_s)}.
+
+The maximum capacity and the year of the inflection point can be chosen freely. In the github repository the values are from the REMod study (Sterchele 2019). 
+The rate then is obtained by fitting the above formula to the hhistoric data by the method of least squares. Therefore let :math:`c_{i,s,hist}` be the capacity from historical data, then the following term is minimized:
+
+.. math::
+	\sum_{i = 2008}^{2018} (c_{i,s} - c_{i,s,hist})^2.
+	
+This yields for each sector an overall growth rate :math:`r_s` which gives the logistic function wich fit best the historic data. 
+From this the annual capacities :math:`c_{i,s}` can be computet which allows to get the annual growth rate :math:`r_{i,s,hist}` by
+
+.. math::
+	r_{i,s,hist} = \frac{c_{s,i} - c_{s,i-1}}{c_{s,i-1} \left(1 - \frac{c_{s,i-1}}{c_{max,s}} \right)}.
+	:label: eq:r_hist
+
+2. **Calculaiton of determinants**
+
+The political determinants are the result of a group Delphi (Hofmaier et al 2018), they are stored in 'inputs/political_determinants.csv'. The economic determinants base on the irr (internal rate of return) of investments.
+It is the rate :math:`\bar{r}_{i,s}` sucht that for a start year :math:`i`, an investition :math:`I_{i,s}` in sector :math:`s` in year :math:`i` and a resulting cash flow :math:`C_{i,s,j}` over :math:`25` years it holds
+
+.. math::
+	0 = -I_{i,s} + \sum_{j=0}^{25} \frac{C_{i,s,j}}{(1 + \bar{r}_{i,s})^j}.
+
+This is computed for all years from 2019 untill 2050 and for all sectors, sizes and technologies. The economic determinant is bounded from above by 1 and bounden from below by 0. It is given by
+
+.. math::
+	d_{i,s,econ} = \min \left(\max \left(\frac{\bar{r}_{i,s} - l}{u - l},0 \right),1 \right)
+
+where :math:`l` is the lower bound and :math:`u` the upper bound for the return requests of the investor. The economic and political determinats are combined to one determinant :math:`d_{i,s}` as weighted sum,
+in the repository the weights are chosen as 0.6 for the economic determinant and 0.4 for the political determinant. It is assumed that it has 0.06 as lower bound. The combined determinant then is given by
+
+.. math::
+	d_{i,s} = \min(0.6~d_{i,s,econ} + 0.4~d_{i,s,pol}, 0.06).
+
+
+3. **Calculation of the modified diffusion**
+
+The modified annual diffusion rate is obatined by damping the annual histroic rate by the determinant,
+
+.. math::
+	\tilde{r}_{i,s} = d_{i,s} r_{i,s,hist}.
+
+With equation (1) the modified capacities can be recursively computed. Note that until 2020 the capacity from the calculaiton of step 1 is used. The capacity is obtained by
+
+.. math::
+	\tilde{c}_{i,s} = \tilde{c}_{i-1,s} + \tilde{r}_{i,s} \frac{\tilde{c}_{i-1,s}}{1 - \tilde{c}_{i-1,s}}.
+
+4. **Plotting**
+
+At the end the capacities per sector are plotted and compared to the capacities which are calculated from the historic development.
+
+.. figure:: images/plot_cap.png
+   :align: center
+   :scale: 50% 
+
+The irr is plotted as well for each technology and facility size.
+
+.. figure:: images/plot_irr.png
+   :align: center
+   :scale: 50% 
+
+References
+------------------------------
+
+Hofmaier, C., Kuhn, R., Wassermann, S., Wehner, S., Berneiser, J., Charlotte, S., 2018. Maßnahmen und Investitionsverhalten von Akteuren im Bereich „Power-to-Gas“: Bericht eines Gruppendelphis. Zentrum für interdisziplinäre Risikound Innovationsforschung, Stuttgart, Germany.
+
+Sterchele, P., 2019. Analysis of Technology Options to Balance Power Generation from Variable Renewable Energy: Case Study for the German Energy System with the Sector Coupling Model REMod. Disseration, Freiburg, Germany, 300 pp.
