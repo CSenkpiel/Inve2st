@@ -7,7 +7,7 @@ Inve2st_Cars Simulates the diffusion of alternative vehicles (battery electric a
 Inve2st_HSS simulates the unit-comitmnet, economic performance and preference shares for PV-Homestoragesystems on the basis of Discret Choice model. 
 Inve2st_ptg simulates the economic performance an diffusion of Power-to-Gas technologies in Germany until 2050.
 
-See [documentation](https://inve2stcars.readthedocs.io/en/latest/) for further information. 
+See [documentation](https://inve2st.readthedocs.io/en/latest/) for further information. 
 
 
 
