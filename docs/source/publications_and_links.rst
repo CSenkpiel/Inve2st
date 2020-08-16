@@ -4,7 +4,7 @@
 Publications and Links
 =================
 
-The projekt homepage can be found under the following link: 
+The project homepage can be found under the following link: 
 
 https://www.ise.fraunhofer.de/de/forschungsprojekte/sozio-e2s.html
 
