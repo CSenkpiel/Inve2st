@@ -7,6 +7,6 @@ The Inve2st framework was developed in the context of the research project “Op
 
 .. figure:: images/funding.PNG
    :align: center
-   :scale: 50%
+   :scale: 100%
 
 
