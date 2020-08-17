@@ -473,9 +473,4 @@ The irr is plotted as well for each technology and facility size.
    :align: center
    :scale: 50% 
 
-References
-------------------------------
 
-Hofmaier, C., Kuhn, R., Wassermann, S., Wehner, S., Berneiser, J., Charlotte, S., 2018. Maßnahmen und Investitionsverhalten von Akteuren im Bereich „Power-to-Gas“: Bericht eines Gruppendelphis. Zentrum für interdisziplinäre Risikound Innovationsforschung, Stuttgart, Germany.
-
-Sterchele, P., 2019. Analysis of Technology Options to Balance Power Generation from Variable Renewable Energy: Case Study for the German Energy System with the Sector Coupling Model REMod. Disseration, Freiburg, Germany, 300 pp.
