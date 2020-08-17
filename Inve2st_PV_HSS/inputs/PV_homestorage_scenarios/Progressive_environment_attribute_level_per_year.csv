@@ -1,0 +1,6 @@
+alternative;year;attribute;attribute_level
+tec_pv_plus_battery;2020;att_CAPEX;11125
+tec_pv_plus_battery;2020;att_envir;full_recyc
+tec_pv_plus_battery;2020;att_pp_IRR;14
+tec_pv_plus_battery;2020;att_self_suf;0.6
+tec_pv_plus_battery;2020;att_time;<1
