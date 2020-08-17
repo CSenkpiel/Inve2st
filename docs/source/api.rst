@@ -26,8 +26,6 @@ The following variables can be set in ptg.py, note that some of them have to mat
 
 Modules
 -------
-
- 
 .. automodule:: modules.Investment_Options
   :members:
   :undoc-members:
@@ -39,4 +37,16 @@ Modules
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
+  
+.. automodule:: modules.Queries
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+  
+.. automodule:: calc_UCM_economics
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:   
  
