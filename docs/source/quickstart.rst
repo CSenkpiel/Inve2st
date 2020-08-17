@@ -21,7 +21,7 @@ Following python modules are required and should be installed before running the
 	- scikit-learn 
 	- psycopg2 
 
-Minimum working example Passenger Cars
+Minimum working example
 ------------------------------
 To run the simulation for passenger cars car_simulation.py needs to be executed. 
 If no own PostgreSQL Database – according to the Inve2st schema is set up, the model can be run without database – reading in csv data from the Input folder. Within the car_simulation.py the following settings need to be put to work with csv files:
@@ -49,7 +49,42 @@ All user settings can be made in the car_simulation.py
 .. figure:: images/test_py.PNG
    :align: center
    :scale: 70%
-   
+
+
+Installation PV-homestorage systems
+------------------------------
+Download the code from https://www.github.com
+
+Hint: If working in Spyder IDE, please set the working directory to the root folder (Inve2st_PV_HSS).
+
+The tool was written in python 3.7. Following python modules are required and should be installed before running the framework.
+ 
+
+	- os 
+	- json
+	- pandas
+	- plotly.graph_objects 
+	- plotly.io
+	- plotly.subplots
+
+Minimum working example
+------------------------------
+To run the simulation for PV-homestorage systems calc_UCM_economics.py needs to be executed. 
+If no own PostgreSQL Database – according to the Inve2st schema is set up, the model can be run without database – reading in csv data from the input folder. 
+..
+  Within the calc_UCM_economics.py the following settings need to be put to work with csv files:
+
+
+The csv files for different cases are provided in inputs folder.
+
+The options (scenarios) that are available are put as comments in the calc_UCM_economics.py and can be replaced by the other available options. *iterables_on* is used for plotting options so if iterables are specicified True is set, else False. The folder name in the input order shows which scenarios are available by default. A detailed description of the data can be found under "Data and Database". A short description of the options is provided in the code. 
+
+
+All user settings can be changed in the calc_UCM_economics.py, a description is in :ref:`API`.
+
+.. figure:: images/pv_min_work_example.PNG
+   :align: center
+   :scale: 70%
    
 Installation Power-to-Gas
 ------------------------------
@@ -71,4 +106,4 @@ To run the model, it suffices to execute the ptg.py after the steps above. If wi
 
 .. figure:: images/settings_ptg.png
    :align: center
-   :scale: 50%
+   :scale: 70%
