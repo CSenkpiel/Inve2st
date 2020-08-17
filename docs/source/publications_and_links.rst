@@ -17,4 +17,10 @@ List of publications:
 
 
 		Schrage, A., Wassermann, S., Berneiser, J., & Gölz, S. (2018). Sozialwissenschaftliche Determinanten von Investitionsentscheidungen in erneuerbare Energietechnologien (Stuttgarter Beiträge zur Risiko- und Nachhaltigkeitsforschung). Retrieved from https://elib.uni-stuttgart.de/bitstream/11682/9607/1/%c3%9cberblickstudie_Schrage%20et%20al%202018.pdf 
+		
+		
+                Hofmaier, C., Kuhn, R., Wassermann, S., Wehner, S., Berneiser, J., Charlotte, S., 2018. Maßnahmen und Investitionsverhalten von Akteuren im Bereich „Power-to-Gas“: Bericht eines Gruppendelphis. Zentrum für interdisziplinäre Risikound Innovationsforschung, Stuttgart, Germany.
+
+
+                Sterchele, P., 2019. Analysis of Technology Options to Balance Power Generation from Variable Renewable Energy: Case Study for the German Energy System with the Sector Coupling Model REMod. Disseration, Freiburg, Germany, 300 pp.
 
