@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# sozioe2s-test documentation build configuration file, created by
+# Inve2st's documentation build configuration file, created by
 # sphinx-quickstart on Thu Mar 14 09:09:28 2019.
 #
 # This file is execfile()d with the current directory set to its
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'sozioe2s-test'
+project = 'Inve2st'
 copyright = '2019, test user'
 author = 'test user'
 
@@ -100,7 +100,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'sozioe2s-testdoc'
+htmlhelp_basename = 'Inve2st-testdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -127,7 +127,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'sozioe2s-test.tex', 'sozioe2s-test Documentation',
+    (master_doc, 'Inve2st-test.tex', 'Inve2st-test Documentation',
      'test user', 'manual'),
 ]
 
@@ -137,7 +137,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'sozioe2s-test', 'sozioe2s-test Documentation',
+    (master_doc, 'Inve2st-test', 'Inve2st-test Documentation',
      [author], 1)
 ]
 
@@ -148,8 +148,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'sozioe2s-test', 'sozioe2s-test Documentation',
-     author, 'sozioe2s-test', 'One line description of project.',
+    (master_doc, 'Inve2st-test', 'Inve2st-test Documentation',
+     author, 'Inve2st-test', 'One line description of project.',
      'Miscellaneous'),
 ]
 
