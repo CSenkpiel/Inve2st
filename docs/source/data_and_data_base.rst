@@ -52,4 +52,4 @@ To be able to connect to database, the login credentials should be set in creden
 Data Power-to-Gas
 ------------------------------
 
-All required Data is located in the inputs folder.
+All required Data is located in the "inputs" folder.
