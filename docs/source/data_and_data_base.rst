@@ -5,7 +5,7 @@ Data and Database
 
 Data of cars and PV HSS
 ------------------------------
-# Database
+## Database
 
 The foundation for the Inve2st Framework is a PostgreSQL Database. Queries have been defined to be able to use the framework as flexible as possible, e.g. for choosing different scenario_IDs for different kinds of data. All queries can be found in the modules.Queries (:ref:`API`).
 
@@ -14,7 +14,7 @@ If the database is installed locally by the user, the database needs to be set a
 If the data from the database should be written into the input folder the function needs to be set as True (self.write_data = True)
 
 
-# Equipment Data
+## Equipment Data
 
 To be able to use the framework without the database, equipment data is provided for different scenarios and aggregation levels. 
 
@@ -35,7 +35,7 @@ One exemplary set of input files (as csv) is described here:
    data_inputs/*
 
 
-# Database Credentials
+**Database Credentials**
 
 To be able to connect to database, the login credentials should be set in credentials.json.
 
