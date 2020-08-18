@@ -93,7 +93,7 @@ The tool was written in python 3.7, the used packages are listed in requirements
 
 
 
-A minimum working example
+Minimum working example
 ------------------------------
 To run the model, it suffices to execute the ptg.py after the steps above. If wished, the settings can be changed in ptg.py, a picture of the settings is below, a description is in :ref:`API`.
 
