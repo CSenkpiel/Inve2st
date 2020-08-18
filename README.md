@@ -1,7 +1,7 @@
 <img align="right" width="260" height="100" src="https://github.com/CSenkpiel/Inve2stCars/blob/master/docs/source/images/Invest_Logo.jpg">
 
 
-| # Inve2st
+# Inve2st
 | Is composed of three modules: 
 | Inve2st_Cars simulates the diffusion of alternative vehicles (battery electric and hydrogen) until 2050 in Germany on the basis of Discret Choice model. 
 | Inve2st_HSS simulates the unit-comitment, economic performance and preference shares for PV-Homestorage systems on the basis of Discret Choice model. 
