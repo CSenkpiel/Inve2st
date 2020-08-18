@@ -49,7 +49,7 @@ To be able to connect to database, the login credentials should be set in creden
 		"password" : "mypassword"
 	}
 
-Data Power-to-Gas
+Data of Power-to-Gas
 ------------------------------
 
 All required Data is located in the "inputs" folder.
