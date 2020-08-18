@@ -9,12 +9,9 @@ Download the code from https://www.github.com
 
 Hint: If working in Spyder IDE, please set the working directory to the root folder (Inve2st_Passenger_car).
 
-Prerequisites
-------------------------------
 Please use Python 3.7. 
 Following python modules are required and should be installed before running the framework.
  
-
 	- numpy 
 	- scipy
 	- pandas
@@ -58,7 +55,6 @@ Download the code from https://www.github.com
 Hint: If working in Spyder IDE, please set the working directory to the root folder (Inve2st_PV_HSS).
 
 The tool was written in python 3.7. Following python modules are required and should be installed before running the framework.
- 
 
 	- os 
 	- json
