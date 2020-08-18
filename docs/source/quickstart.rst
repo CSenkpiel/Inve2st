@@ -71,7 +71,7 @@ Minimum working example
 ------------------------------
 To run the simulation for PV-homestorage systems calc_UCM_economics.py needs to be executed. 
 If no own PostgreSQL Database – according to the Inve2st schema is set up, the model can be run without database – reading in csv data from the input folder. 
-.. Within the calc_UCM_economics.py the following settings need to be put to work with csv files:
+
 
 The csv files for different cases are provided in inputs folder.
 
