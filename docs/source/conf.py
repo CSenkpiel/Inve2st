@@ -47,8 +47,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Inve2st'
-copyright = '2019, test user'
-author = 'test user'
+copyright = '2019, Author name'
+author = 'Here goes the author (can be changed in conf.py or let me know:))'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -127,7 +127,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'Inve2st-test.tex', 'Inve2st-test Documentation',
+    (master_doc, 'Inve2st.tex', 'Inve2st Documentation',
      'test user', 'manual'),
 ]
 
@@ -137,7 +137,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'Inve2st-test', 'Inve2st-test Documentation',
+    (master_doc, 'Inve2st', 'Inve2st Documentation',
      [author], 1)
 ]
 
@@ -148,8 +148,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'Inve2st-test', 'Inve2st-test Documentation',
-     author, 'Inve2st-test', 'One line description of project.',
+    (master_doc, 'Inve2st', 'Inve2st Documentation',
+     author, 'Inve2st', 'One line description of project.',
      'Miscellaneous'),
 ]
 
