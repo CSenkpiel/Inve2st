@@ -4,9 +4,9 @@
 # Inve2st
 
 Is composed of three modules: <br/>
-Inve2st_Cars simulates the diffusion of alternative vehicles (battery electric and hydrogen) until 2050 in Germany on the basis of Discret Choice model. <br/>
-Inve2st_HSS simulates the unit-commitment, economic performance and preference shares for PV-Homestorage systems on the basis of Discret Choice model. <br/>
-Inve2st_ptg simulates the economic performance and diffusion of Power-to-Gas technologies in Germany until 2050. <br/>
+1) Inve2st_cars simulates the diffusion of alternative vehicles (battery electric and hydrogen) until 2050 in Germany on the basis of Discret Choice model. <br/>
+2) Inve2st_PV_HSS simulates the unit-commitment, economic performance and preference shares for PV-Homestorage systems on the basis of Discret Choice model. <br/>
+3) Inve2st_ptg simulates the economic performance and diffusion of Power-to-Gas technologies in Germany until 2050. <br/>
 
 See [documentation](https://inve2st.readthedocs.io/en/latest/) for further information. 
 
