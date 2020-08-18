@@ -7,6 +7,7 @@ Data of cars and PV HSS
 ------------------------------
 **Database**
 
+The required data can be found in respective "inputs" folder of cars and PV HSS.
 The foundation for the Inve2st Framework is a PostgreSQL Database. Queries have been defined to be able to use the framework as flexible as possible, e.g. for choosing different scenario_IDs for different kinds of data. All queries can be found in the modules.Queries (:ref:`API`).
 
 If the database is installed locally by the user, the database needs to be set as TRUE (self.db_on = True) within the module investment_options.
@@ -18,7 +19,7 @@ If the data from the database should be written into the input folder the functi
 
 To be able to use the framework without the database, equipment data is provided for different scenarios and aggregation levels. 
 
-The data provided are the results of the database queries for specific settings. The provided data can be found in …\\sozio_e2s_model\\Inve2st_Passenger_car\\inputs. 
+The data provided are the results of the database queries for specific settings. For instance for the case of Passenger cars the provided data can be found in …\\sozio_e2s_model\\Inve2st_Passenger_car\\inputs. 
 
 
 The names of the folders are a combination of the settings for the queries:
