@@ -28,7 +28,7 @@ The modelling approach follows the method of a discrete choice model using data 
 	- fuel costs
 	- infrastructure
 	- range
-	- well2well emissions
+	- well2wheel emissions
 
 
 Each attribute had two to four attribute levels, which were chosen to represent the bandwidth of the development from today until 2050. The attribute levels rotated within the experiment, so that every participant responded to 10 choice tasks. As the attribute levels differ between different car classes a distinction between three classes was undertaken. 
