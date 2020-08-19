@@ -26,25 +26,25 @@ The following variables can be set in ptg.py, note that some of them have to mat
 
 Modules
 -------
-.. automodule:: Inve2st_cars.modules.Investment_Options
+.. automodule:: modules.Investment_Options
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:
   
-.. automodule:: Inve2st_cars.modules.DataBase
+.. automodule:: modules.DataBase
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
   
-.. automodule:: Inve2st_cars.modules.Queries
+.. automodule:: modules.Queries
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
   
-.. automodule:: Inve2st_PV_HSS.modules.calc_UCM_economics
+.. automodule:: modules.calc_UCM_economics
   :members:
   :undoc-members:
   :inherited-members:
