@@ -50,13 +50,13 @@ Modules
   :inherited-members:
   :show-inheritance:   
   
-.. automodule:: modules.calc_annual_diffusion
+.. automodule:: Inve2st_ptg.modules.calc_annual_diffusion
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:
   
-.. automodule:: modules.calc_hist_diffusion
+.. automodule:: Inve2st_ptg.calc_hist_diffusion
   :members:
   :undoc-members:
   :inherited-members:
