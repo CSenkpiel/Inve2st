@@ -104,7 +104,7 @@ Modules
   :inherited-members:
   :show-inheritance:  
   
-.. automodule:: modules.save_data
+.. automodule:: Inve2st_ptg.modules.save_data
   :members:
   :undoc-members:
   :inherited-members:
