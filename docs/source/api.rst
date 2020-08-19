@@ -6,9 +6,9 @@ API
 Settings
 --------
 
-The following variables can be set in ptg.py, note that some of them have to match the inices in the input csv files.
+The following variables can be set in ptg.py, note that some of them have to match the indices in the input csv files.
 
-- **year_start**, the year when the first facility was constructed in germany
+- **year_start**, the year when the first facility was constructed in Germany
 - **duration**, time until maximum capacity is installed
 - **cap_max**, target maximum installed capacity in GWel
 - **share_sector**, dictionary with the shares of cap_max per sector
