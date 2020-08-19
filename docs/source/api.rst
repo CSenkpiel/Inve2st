@@ -49,4 +49,94 @@ Modules
   :undoc-members:
   :inherited-members:
   :show-inheritance:   
+  
+.. automodule:: Inve2st_ptg.modules.calc_annual_diffusion
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:
+  
+.. automodule:: Inve2st_ptg.modules.calc_hist_diffusion
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+  
+.. automodule:: Inve2st_ptg.modules.calc_installed_cap_from_hist
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
  
+.. automodule:: modules.calc_modified_capacity
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+
+.. automodule:: modules.generate_sector_classes
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance: 
+
+.. automodule:: modules.loop
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+
+.. automodule:: modules.plot_cap
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+
+.. automodule:: modules.plot_irr
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+
+.. automodule:: modules.read_and_generate_data
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+  
+.. automodule:: modules.save_data
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+
+.. automodule:: modules.IRR.calc_cashflow
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+
+.. automodule:: modules.IRR.calc_financial_expenses
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+ 
+.. automodule:: modules.IRR.calc_income_statement
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+
+.. automodule:: modules.IRR.calc_investment
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance:  
+  
+.. automodule:: Inve2st_ptg.modules.IRR.calc_operational_cost
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance: 
+
