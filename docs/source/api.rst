@@ -38,7 +38,7 @@ Modules
   :inherited-members:
   :show-inheritance:  
   
-.. automodule:: modules.Queries
+.. automodule:: Inve2st_PV_HSS.modules.Queries
   :members:
   :undoc-members:
   :inherited-members:
