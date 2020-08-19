@@ -1,15 +1,4 @@
 import psycopg2
-import pandas as pd
-import os
-import matplotlib.pyplot as plt
-import numpy as np
-from modules.Queries import Query
-from scipy import interpolate
-import matplotlib.patches as mpatches
-from scipy.optimize import curve_fit
-from scipy import integrate
-from sklearn.metrics import r2_score
-from scipy.optimize import leastsq
 class DataBase():
     """Base class for Postgresql Database"""
     def __init__(self, dbname, host, user, password):
