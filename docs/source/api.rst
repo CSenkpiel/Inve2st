@@ -37,7 +37,12 @@ Modules
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
-  
+
+.. automodule:: modules.Queries
+  :members:
+  :undoc-members:
+  :inherited-members:
+  :show-inheritance: 
 
 .. automodule:: Inve2st_PV_HSS.modules.calc_UCM_economics
   :members:
