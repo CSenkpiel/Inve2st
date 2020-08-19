@@ -50,19 +50,19 @@ Modules
   :inherited-members:
   :show-inheritance:   
   
-.. automodule:: Inve2st_ptg.modules.calc_annual_diffusion
+.. automodule:: modules.calc_annual_diffusion
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:
   
-.. automodule:: Inve2st_ptg.modules.calc_hist_diffusion
+.. automodule:: modules.calc_hist_diffusion
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
   
-.. automodule:: Inve2st_ptg.modules.calc_installed_cap_from_hist
+.. automodule:: modules.calc_installed_cap_from_hist
   :members:
   :undoc-members:
   :inherited-members:
@@ -134,7 +134,7 @@ Modules
   :inherited-members:
   :show-inheritance:  
   
-.. automodule:: Inve2st_ptg.modules.IRR.calc_operational_cost
+.. automodule:: modules.IRR.calc_operational_cost
   :members:
   :undoc-members:
   :inherited-members:
