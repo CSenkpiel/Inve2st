@@ -575,7 +575,7 @@ if iterables_on == False:
         title_text="Time series plot"
         
     )
-    fig.write_html('time_series.html', auto_open=True)
+    fig.write_html('tmp.html', auto_open=True)
 
     # plot cash flow
     pio.renderers.default = 'browser'
@@ -594,7 +594,7 @@ if iterables_on == False:
         yaxis=dict(title="Euro"),
         xaxis=dict(title="Year"), 
         title_text="Cash flow of investment")   
-    fig.write_html('cash_flow.html', auto_open=True)
+    fig.write_html('tmp.html', auto_open=True)
     
     # plot cumulated cash flow
     fig = go.Figure()
@@ -606,7 +606,7 @@ if iterables_on == False:
         yaxis=dict(title="Euro"),
         xaxis=dict(title="Year"), 
         title_text="Cumulated cash flow of investment")       
-    fig.write_html('cum_cash_flow.html', auto_open=True)
+    fig.write_html('tmp.html', auto_open=True)
     
     
     # plot techno-economic benchmarks
@@ -637,7 +637,7 @@ if iterables_on == False:
     fig.update_yaxes(title='euros',row=2,col=1)
     fig.update_yaxes(title='%',row=2,col=2)
     fig.update_layout(showlegend=False, title_text="Economic performance")
-    fig.write_html('benchmarks.html', auto_open=True)
+    fig.write_html('tmp.html', auto_open=True)
     
 
 
@@ -660,7 +660,10 @@ if iterables_on == True:
                         specs=[[{}, {}, {'colspan':2},None],
                                [{'colspan':2},None, {'colspan':2},None]])
     fig.add_trace(go.Scatter(y=result_df['degree_autarky_wo_storage'],mode='markers',name='Degree aut. wo/stor',
+                         #hovertext=(result_df['text_col'],result_df['NPV']), 
                          
+                         #hoverlabel=dict(namelength=0),
+                         #hovertemplate='%{y}<br>year: <br>demand: %{hovertext} <br>Avg. Playtime: %{hovertext}'),
                          text=result_df['text_col']),
                   row=1, col=1)
     fig.add_trace(go.Scatter(y=result_df['degree_autarky_w_storage'],mode='markers',name='Degree aut. w/stor',
@@ -695,4 +698,4 @@ if iterables_on == True:
     fig.update_yaxes(title='euros',row=2,col=1)
     fig.update_yaxes(title='%',row=2,col=3)
     fig.update_layout(showlegend=True, title_text="Economic performance")
-    fig.write_html('scatter.html', auto_open=True)
+    fig.write_html('tmp.html', auto_open=True)
