@@ -26,7 +26,7 @@ The following variables can be set in ptg.py, note that some of them have to mat
 
 Modules
 -------
-.. automodule:: Inve2st_cars.modules.Investment_Options
+.. automodule:: Inve2st_cars.modules.Investment_Options_old
   :members:
   :undoc-members:
   :inherited-members:
@@ -50,13 +50,13 @@ Modules
   :inherited-members:
   :show-inheritance:   
   
-.. automodule:: Inve2st_ptg.modules.calc_annual_diffusion
+.. automodule:: Inve2st_ptg.modules.calc_annual_diffusion.py
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:
   
-.. automodule:: Inve2st_ptg.modules.calc_hist_diffusion
+.. automodule:: Inve2st_ptg.modules.calc_hist_diffusion.py
   :members:
   :undoc-members:
   :inherited-members:
@@ -134,7 +134,7 @@ Modules
   :inherited-members:
   :show-inheritance:  
   
-.. automodule:: modules.IRR.calc_operational_cost
+.. automodule:: Inve2st_ptg.modules.IRR.calc_operational_cost
   :members:
   :undoc-members:
   :inherited-members:
