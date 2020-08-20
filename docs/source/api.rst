@@ -38,7 +38,7 @@ Modules
   :inherited-members:
   :show-inheritance:  
 
-.. automodule:: modules.Queries
+.. automodule:: Inve2st_cars.modules.Queries
   :members:
   :undoc-members:
   :inherited-members:
@@ -62,43 +62,43 @@ Modules
   :inherited-members:
   :show-inheritance:  
   
-.. automodule:: modules.calc_installed_cap_from_hist
+.. automodule:: Inve2st_ptg.modules.calc_installed_cap_from_hist
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
  
-.. automodule:: modules.calc_modified_capacity
+.. automodule:: Inve2st_ptg.modules.calc_modified_capacity
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
 
-.. automodule:: modules.generate_sector_classes
+.. automodule:: Inve2st_ptg.modules.generate_sector_classes
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance: 
 
-.. automodule:: modules.loop
+.. automodule:: Inve2st_ptg.modules.loop
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
 
-.. automodule:: modules.plot_cap
+.. automodule:: Inve2st_ptg.modules.plot_cap
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
 
-.. automodule:: modules.plot_irr
+.. automodule:: Inve2st_ptg.modules.plot_irr
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
 
-.. automodule:: modules.read_and_generate_data
+.. automodule:: Inve2st_ptg.modules.read_and_generate_data
   :members:
   :undoc-members:
   :inherited-members:
@@ -110,25 +110,25 @@ Modules
   :inherited-members:
   :show-inheritance:  
 
-.. automodule:: modules.IRR.calc_cashflow
+.. automodule:: Inve2st_ptg.modules.IRR.calc_cashflow
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
 
-.. automodule:: modules.IRR.calc_financial_expenses
+.. automodule:: Inve2st_ptg.modules.IRR.calc_financial_expenses
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
  
-.. automodule:: modules.IRR.calc_income_statement
+.. automodule:: Inve2st_ptg.modules.IRR.calc_income_statement
   :members:
   :undoc-members:
   :inherited-members:
   :show-inheritance:  
 
-.. automodule:: modules.IRR.calc_investment
+.. automodule:: Inve2st_ptg.modules.IRR.calc_investment
   :members:
   :undoc-members:
   :inherited-members:
