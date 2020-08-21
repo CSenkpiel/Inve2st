@@ -128,7 +128,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'Inve2st.tex', 'Inve2st Documentation',
-     'Charlotte Senkpiel,\n Benedikt Köpfer,\n Ileskhan Kalysh', 'manual'),
+     "Charlotte Senkpiel, \nBenedikt Köpfer, \nIleskhan Kalysh", 'manual'),
 ]
 
 
