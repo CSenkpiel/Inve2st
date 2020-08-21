@@ -122,7 +122,9 @@ latex_elements = {
     #
     # 'figure_align': 'htbp',
 }
-authoren='Charlotte Senkpiel, \nBenedikt Köpfer, \nIleskhan Kalysh'
+authoren='''Charlotte Senkpiel,
+            Benedikt Köpfer, 
+            Ileskhan Kalysh'''
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
