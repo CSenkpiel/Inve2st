@@ -122,15 +122,13 @@ latex_elements = {
     #
     # 'figure_align': 'htbp',
 }
-
+authoren='Charlotte Senkpiel, \nBenedikt Köpfer, \nIleskhan Kalysh'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'Inve2st.tex', 'Inve2st Documentation',
-     '''Charlotte Senkpiel, 
-        Benedikt Köpfer, 
-        Ileskhan Kalysh''', 'manual'),
+     authoren, 'manual'),
 ]
 
 
