@@ -1,4 +1,4 @@
-import psycopg2
+#import psycopg2
 class DataBase():
     """Base class for Postgresql Database"""
     def __init__(self, dbname, host, user, password):
