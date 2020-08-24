@@ -7,7 +7,6 @@ Created on Wed Aug 28 09:51:34 2019
 import os
 import pandas as pd
 import json
-import psycopg2
 import plotly.graph_objects as go
 import plotly.io as pio
 from plotly.subplots import make_subplots
