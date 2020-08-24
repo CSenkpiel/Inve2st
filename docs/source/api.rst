@@ -26,7 +26,7 @@ The following variables can be set in ptg.py, note that some of them have to mat
 
 Modules
 -------
-.. automodule:: Inve2st_cars.modules.Investment_Options_old
+.. automodule:: Inve2st_cars.modules.Investment_Options
   :members:
   :undoc-members:
   :inherited-members:
